@@ -1,1 +1,12 @@
 //code here
+class Solution {
+    public static int largest(int n, int[] arr) {
+        int larNum = arr[0];
+        for(int i: arr){
+            if(i>larNum){
+                larNum = i;
+            }
+        }
+        return larNum;
+    }
+}

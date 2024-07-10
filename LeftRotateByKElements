@@ -1,0 +1,54 @@
+//solved on coding ninjas. 
+//Time complexity is O(k) + O(n-k)+O(k) = O(n+k)
+//Space complexity is O(k) extra memory used. 
+//this is better solution.
+import java.util.ArrayList;
+
+public class Solution {
+	public static ArrayList<Integer> rotateArray(ArrayList<Integer> arr, int k) {
+        ArrayList<Integer> temp= new ArrayList<>();
+        int n = arr.size();
+        k = k%n;
+        for(int i=0;i<k;i++){
+            temp.add(arr.get(i));
+        }
+        for(int j=0;j<n-k;j++){
+            arr.set(j,arr.get(j+k));
+        }
+        for(int j=n-k;j<n;j++){
+            arr.set(j,temp.get(j-(n-k)));
+        }
+        return arr;
+
+    }
+}
+
+
+//this is optimal solution. 
+//Time complexity if O(k)+O(N-k)+)O(N)=O(2N) which is slightly greater than above solution.
+//Space complexity is O(1) as no extra space is used. 
+
+import java.util.ArrayList;
+
+public class Solution {
+	public static ArrayList<Integer> rotateArray(ArrayList<Integer> arr, int k) {
+        int n = arr.size();
+        k = k%n;
+        swapArray(arr, 0, k-1);
+        swapArray(arr, k, n-1);
+        swapArray(arr, 0, n-1);
+        return arr;
+        
+
+    }
+    public static void swapArray(ArrayList<Integer> arr,int i,int j){
+        while(i<j){
+            Integer temp= arr.get(i);
+            arr.set(i,arr.get(j));
+            arr.set(j,temp);
+            i++;
+            j--;
+        }
+        return ;
+    }
+}

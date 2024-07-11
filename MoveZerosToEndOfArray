@@ -1,0 +1,40 @@
+//move zeros to left of array. 
+import java.util.Arrays;
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[]={0,2,3,0,5,0,7,80,0,3,0,5,0,2,0,1,5};
+		int n = arr.length;
+		int i =0;
+		int j=n-1;
+		while(i<j){
+		    if(arr[i]==0 && arr[j]!=0){
+		        moveToBeginning(arr,i,j);
+		        i++;
+		        j--;
+		        
+		    }
+		    while(i<n){
+		        if(arr[i]!=0){
+		            i++;
+		        }else{
+		            break;
+		        }
+		    }
+		    while(j>0){
+		        if(arr[j]==0){
+		            j--;
+		        }else{
+		            break;
+		        }
+		    }
+		}
+		System.out.println(Arrays.toString(arr));
+	}
+	public static void moveToBeginning(int[] arr,int i,int j){
+	
+	        int temp = arr[i];
+	        arr[i]=arr[j];
+	        arr[j]=temp;
+	}
+}

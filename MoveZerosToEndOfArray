@@ -1,4 +1,5 @@
 //move zeros to left of array. 
+//Time complexity is O(N)
 import java.util.Arrays;
 public class Main
 {
@@ -37,4 +38,36 @@ public class Main
 	        arr[i]=arr[j];
 	        arr[j]=temp;
 	}
+}
+
+
+//Striver solution 
+//Time complexity is O(N)
+//Practiced on coding ninja
+
+public class Solution {
+        public static int[] moveZeros(int n, int []a) {
+            int i =-1;
+            for(int j=0;j<n;j++ ){
+                if(a[j]==0){
+                    i = j;
+                    break;
+                }
+            }
+            if(i == -1){
+                return a;
+            }
+            for(int j=i+1;j<n;j++ ){
+                if(a[j]!=0){
+                    swap(a,i,j);
+                    i++;
+                }
+            }
+            return a;
+    }
+    public static void swap(int[] arr,int i, int j){
+        int temp = arr[i];
+        arr[i]= arr[j];
+        arr[j]=temp;
+    }
 }

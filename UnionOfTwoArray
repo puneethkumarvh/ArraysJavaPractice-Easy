@@ -23,3 +23,31 @@ public class Main
 		
 	}
 }
+
+//Using HashSet as data structures.
+//Time and space complexity is same as above.
+//Practised on gdb online
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int arr1[]={1,2,3,0,8,1,2,3};
+		int arr2[]={1,2,7,8,5,6,-2,1,-1};
+		HashSet<Integer> tempMap=new HashSet<>();
+		for(int i : arr1){
+		    tempMap.add(i);
+		}
+		//Insertion of elements into a hashmap takes log(n) time.
+		for(int i : arr2){
+		    tempMap.add(i);
+		}
+		ArrayList<Integer> tempArr = new ArrayList<>();
+		for(int i : tempMap){
+		    tempArr.add(i);
+		}
+		System.out.println(tempArr);
+		
+		
+	}
+}
+

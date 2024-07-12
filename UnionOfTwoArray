@@ -1,0 +1,25 @@
+//done using hashmaps 
+//Time Compleixty : O( (m+n)log(m+n) ) . Inserting a key in map takes logN times, where N is no of elements in map. At max map can store m+n elements {when there are no common elements and elements in arr,arr2 are distntict}. So Inserting m+n th element takes log(m+n) time. Upon approximation across insertion of all elements in worst it would take O((m+n)log(m+n) time.
+//Space Complexity : O(m+n) {If Space of Union ArrayList is considered} 
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int []arr1={1,2,3,3,2,4,5};
+		int[]arr2={3,0,8,9,5,-1,-8};
+		HashMap<Integer,Integer> tempMap = new HashMap<>();
+		ArrayList<Integer> arrList = new ArrayList<>();
+		for(int i: arr1){
+		    tempMap.put(i,tempMap.getOrDefault(i,0));
+		}
+		for(int i: arr2){
+		    tempMap.put(i,tempMap.getOrDefault(i,0));
+		}
+		for(int j: tempMap.keySet()){
+		    arrList.add(j);
+		}
+		System.out.println(arrList);
+		
+	}
+}

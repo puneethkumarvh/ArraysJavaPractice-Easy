@@ -52,7 +52,7 @@ public class Main
 }
 
 //Optimal solution uisng two pointers. 
-//Time complexity is O(N) 
+//Time complexity is O(M+N) 
 // Practiced on gdb online compiler.
 
 import java.util.*;

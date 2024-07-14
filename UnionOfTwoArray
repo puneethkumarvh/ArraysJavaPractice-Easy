@@ -51,3 +51,53 @@ public class Main
 	}
 }
 
+//Optimal solution uisng two pointers. 
+//Time complexity is O(N) 
+// Practiced on gdb online compiler.
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int arr1[]={0,1,2,4,5,7,100};
+	    int arr2[]={0,4,5,7,8,9,200};
+	    int n1 = arr1.length;
+	    int n2 = arr2.length;
+	    ArrayList<Integer> arrList = new ArrayList<>();
+	    int i=0,j=0;
+	    while(i< n1 && j < n2){
+	        if(arr1[i]<= arr2[j]){
+	            if(arrList.size() == 0 || arrList.get(arrList.size()-1) != arr1[i]){
+	                arrList.add(arr1[i]);
+	            }
+	            i++;
+	        }
+	        else if(arr2[j] < arr1[i]){
+	            if(arrList.size()==0 || arrList.get(arrList.size()-1) != arr2[j]){
+	            arrList.add(arr2[j]);
+	        }
+	        j++;
+	            
+	        } 
+	        
+	    }
+	    while(j<n2){
+	        if(arrList.size()==0 || arrList.get(arrList.size()-1) != arr2[j]){
+	            arrList.add(arr2[j]);
+	        }
+	        j++;
+	        
+	    }
+	    while(i<n1){
+	        if(arrList.size()==0 || arrList.get(arrList.size()-1) != arr1[i]){
+	            arrList.add(arr1[i]);
+	        }
+	        i++;
+	        
+	    }
+	    System.out.println(arrList);
+		
+	}
+}
+
+

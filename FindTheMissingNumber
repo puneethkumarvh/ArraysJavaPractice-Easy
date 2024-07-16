@@ -1,0 +1,72 @@
+//Brute force method
+//Practiced on conding ninja.
+//time complexity is O(n*N) and space complexity is O(1)
+public class Solution {
+    public static int missingNumber(int []a, int N) {
+        for(int i=0;i<=N;i++){
+            boolean found = false;
+            for(int j:a){
+                if(i == j){
+                    found= true;
+                    break;
+                }
+
+            }
+            if(found == false){
+                return i;
+            }
+        }
+        return -1;
+        
+    }
+}
+
+//Better approach 
+//Practiced on coding ninja
+//Time complexity is O(2N) and space complexity is O(N);
+public class Solution {
+    public static int missingNumber(int []a, int N) {
+        int []hash = new int[N+1];
+        for(int i: a){
+            hash[i]=1;
+        }
+        for(int i=1;i<N+1;i++){
+            if(hash[i]==0){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+
+//Optimal solution using Sum of N natural numbers.
+//Practiced using coding ninjas.
+//Time complexity is O(N) and space complexity is O(1)
+public class Solution {
+    public static int missingNumber(int []a, int N) {
+        int tot_sum = N*(N+1)/2;
+        int sum=0;
+        for(int i:a){
+            sum+=i;
+        }
+        return tot_sum-sum;
+    }
+}
+
+//Optimal solution using XOR function. 
+//Practiced using coding ninjas.
+//Time complexity is O(N) and space complexity is O(1)
+public class Solution {
+    public static int missingNumber(int []a, int N) {
+        int xor1 = 0;
+        int xor2 =0;
+        
+        for(int i=0;i<N;i++){
+            xor2 = xor2^a[i];
+            xor1 = xor1 ^ (i+1);
+        }
+        xor1= xor1;
+        return xor1 ^ xor2;
+    }
+}

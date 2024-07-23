@@ -1,0 +1,35 @@
+//Practiced on code 360 
+//code 
+
+import java.util.*;
+public class Solution {
+    public static int getSingleElement(int []arr){
+        HashMap<Integer,Integer> freq = new HashMap<>();
+        for(int i:arr){
+            freq.put(i,freq.getOrDefault(i,0)+1);
+        }
+        for(int i:arr){
+            int value=freq.get(i);
+            if(value == 1){
+                return i;
+            }
+        }
+        return -1;
+        
+    }
+}
+
+//Using XOR method 
+//Time complexity is O(N)
+//Note x ^ x = 0
+//0 ^ x = x
+
+public class Solution {
+    public static int getSingleElement(int []arr){
+        int result = 0;
+        for(int i:arr){
+            result = result ^ i;
+        }
+        return result;
+    }
+}

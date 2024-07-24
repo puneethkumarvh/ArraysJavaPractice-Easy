@@ -1,6 +1,7 @@
 //Question : https://www.naukri.com/code360/problems/longest-subarray-with-sum-k_6682399?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&leftPanelTabValue=PROBLEM
 //code 
 //Optimal solution using two pointers.
+//Time complexity is O(2N) for two while loops as they overall iterates the array twice. 
 
 public class Solution {
     public static int longestSubarrayWithSumK(int []a, long k) {

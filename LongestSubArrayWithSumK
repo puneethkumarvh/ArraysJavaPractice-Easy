@@ -1,0 +1,27 @@
+//Question : https://www.naukri.com/code360/problems/longest-subarray-with-sum-k_6682399?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&leftPanelTabValue=PROBLEM
+//code 
+//Optimal solution using two pointers.
+
+public class Solution {
+    public static int longestSubarrayWithSumK(int []a, long k) {
+        long sum = a[0];
+        int left = 0;
+        int right = 0;
+        int maxLen = -1;
+        while(right < a.length){
+            while(sum >k && left <right ){
+                sum -= a[left];
+                left++;
+            }
+            if(sum == k){
+                maxLen=Math.max(maxLen, right-left +1);
+            }
+            right++;
+            if(right < a.length){
+                sum+=a[right];
+            }
+        }
+        return maxLen;
+
+    }
+}
